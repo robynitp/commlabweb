@@ -10,7 +10,7 @@ echo "<h2>How are you?</h2>\n";
 $x = 4 + 5;
 $y = $x + 1;
 if ($x < 4){
-	echo "low number";
+	echo "<p>low number</p>";
 } else {
 	echo "high number";
 }

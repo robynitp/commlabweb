@@ -1,10 +1,10 @@
 <html>
-	<!-- HTML form set up to submit to a PHP script called add_article.php -->
+	<!-- HTML form set up to submit to a PHP script called process.php -->
 	<head>
 		<title>Add a new article</title>
 	</head>
 	<body>
-    <form name="myform" method="GET" action="add_article.php">
+    <form name="myform" method="POST" action="process.php">
 	Title: <input type="text" name="mytitle" /><br />
 	Content: <textarea name="mycontent" cols="50" rows="10"></textarea><br />
 	<input type="submit" name="submit" value="Submit Article" />
