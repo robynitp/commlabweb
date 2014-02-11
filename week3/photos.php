@@ -1,7 +1,15 @@
 <?php
-// assume the color comes in from a form or a query string
-// for example: $color = $_GET['color'];
-// here we're just setting it by hand
+/*
+Display a photo based on a color chosen.
+
+In this example, the color is set by hand to "blue"
+
+EXERCISE: 	Get the color from the user either through a form or the query string,
+			so that the color is changes based on what the user picks.
+			Use $_GET or $_POST.
+
+*/
+
 $color = "blue";
 
 // the array matches the colors to the images
