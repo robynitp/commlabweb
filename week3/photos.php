@@ -1,5 +1,6 @@
 <?php
-// assume the color comes in from a form
+// assume the color comes in from a form or a query string
+// for example: $color = $_GET['color'];
 // here we're just setting it by hand
 $color = "blue";
 
