@@ -19,6 +19,6 @@ $line = $last.','.$first.','.$phone."\n"; // "Thumb, Tim, 495-2948" + a line bre
 /* Important! 
   Use FILE_APPEND, to prevent overwriting
 */
-file_put_contents('clients.txt',$line,FILE_APPEND);
+file_put_contents('clients.csv',$line,FILE_APPEND);
 
 
