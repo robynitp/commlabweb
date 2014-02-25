@@ -30,19 +30,18 @@ $json_text = $twitter->setGetfield($getfield)
              ->performRequest();
 
 
+// turn the json text into a PHP object -- see http://us3.php.net/manual/en/function.json-decode.php
+$json_object = json_decode($json_text);
 
-// turn the json text into a PHP array -- see http://us3.php.net/manual/en/function.json-decode.php
-$json_array = json_decode($json_text,true);
+// debug: show the PHP object that was created:
+//var_dump($json_object);
 
-// debug: show the PHP array that was created:
-//var_dump($json_array);
-
-$statuses = $json_array['statuses'];
+$statuses = $json_object->statuses;
 // loop through the array and get every tweet
 foreach ($statuses as $tweet){
     echo '<p>';
-    echo '<strong>@'.$tweet['user']['screen_name'].'</strong><br/>';
-    echo $tweet['text'];
-    echo '<br/> <em>'. $tweet['created_at'] . '</em>';  
+    echo '<strong>@'.$tweet->user->screen_name.'</strong><br/>';
+    echo $tweet->text;
+    echo '<br/> <em>'. $tweet->created_at . '</em>';  
     echo '</p>';
 }
