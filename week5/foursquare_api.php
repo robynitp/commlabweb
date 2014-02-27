@@ -1,6 +1,6 @@
 <?php
-$client_id = '3J551DAB20VJG3BD0QR3Q001YG5TRQWHWXLR4ZQ5H0LXDYAL';
-$client_secret = 'WR2M2O3Z0PZ3OAPTATZUMF3GDHRO4GJWAIAFG40QFGI5KNBW';
+$client_id = 'YOURID';
+$client_secret = 'YOURSECRET';
 
 $request_date = date('Ymd'); //returns current date in format YYYYMMDD
 
