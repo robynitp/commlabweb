@@ -1,6 +1,6 @@
 <?php
-$client_id = 'YOURID';
-$client_secret = 'YOURSECRET';
+$client_id = '3J551DAB20VJG3BD0QR3Q001YG5TRQWHWXLR4ZQ5H0LXDYAL';
+$client_secret = 'WR2M2O3Z0PZ3OAPTATZUMF3GDHRO4GJWAIAFG40QFGI5KNBW';
 
 $request_date = date('Ymd'); //returns current date in format YYYYMMDD
 
@@ -17,27 +17,27 @@ $url = $base_url.$endpoint.$end_point.$params.$auth;
 $results = file_get_contents($url);
 //echo $results; // for debugging -- this is the json text
 
-// turn the json text into a PHP object
-$json_results = json_decode($results);
+// turn the json text into a PHP array
+$json_results = json_decode($results,true);
 
-// var_dump($json_results); // the full object
-// var_dump($json_results->response->venues); // drill down to the venues array
+// var_dump($json_results); // the full array
+// var_dump($json_results['response']['venues']); // drill down to the venues array
 
 // put the venues in a variable for easy access later
-$venues = $json_results->response->venues;
+$venues = $json_results['response']['venues'];
 
 /*
 loop through the array of venues
 */
 
-foreach ( $venues as $venue_obj){
+foreach ( $venues as $venue){
 	echo '<li>';
 	$a_tag = false; // track whether there's a link
-	if ($venue_obj->url){ // if there's a url given
-		echo '<a href="'.$venue_obj->url.'">';
-		$a_tag = true; // so we'll know to close the tag
+	if ($venue['url']){ // if there's a url given, make a link tag
+		echo '<a href="'.$venue['url'].'">';
+		$a_tag = true; // so we'll know to close the a tag at the end
 	}
-	echo  $venue_obj->name; // the 'name' property of the venue object
+	echo $venue['name']; // the 'name' property of the venue object
 	if ($a_tag){echo '</a>';}
 	echo '</li>';
 }
