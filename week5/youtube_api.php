@@ -21,7 +21,7 @@ Make sure the paths in the require statements below point to the location of the
 
 */
 require('google-api-php-client/src/Google_Client.php');
-require('google-api-php-client/src/contrib/Google_YoutubeService.php');
+require('google-api-php-client/src/contrib/Google_YouTubeService.php');
 
 /* Set $developer_key to the "API key" value from the "Access" tab of the
 Google APIs Console <http://code.google.com/apis/console#access>

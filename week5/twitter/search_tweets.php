@@ -6,6 +6,9 @@ ini_set('display_errors', 1);
 // pull in the Twitter API helper file
 require_once('TwitterAPIExchange.php');
 
+//twitter credentials
+//require_once('twitter_keys.inc.php');
+
 /** Set access tokens here - see: https://dev.twitter.com/apps/ **/
 $settings = array(
     'oauth_access_token' => "YOUR ACCESS TOKEN",

@@ -14,14 +14,17 @@ q=London : search string
 
 */
 $data = file_get_contents('http://api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=json&units=imperial&cnt=7');
-
+//$url = 'http://api.openweathermap.org/data/2.5/weather?q=London';
+//$data = file_get_contents($url);
 // turn the JSON data into a PHP object
-$json = json_decode($data);
+$json = json_decode($data,true);
+
+var_dump($json);
 
 //var_dump($json); //for debugging
-foreach ($json->list as $myday){
+/*foreach ($json->list as $myday){
 	echo '<li>';
 	echo date('M d',$myday->dt); // format the timestamp as a human-readable date
 	echo ': '.round($myday->temp->day) . 'F';
 	echo '</li>';
-}
+}*/
