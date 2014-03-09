@@ -13,18 +13,23 @@ q=London : search string
 &cnt=7 : count, number of days to report
 
 */
-$data = file_get_contents('http://api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=json&units=imperial&cnt=7');
-//$url = 'http://api.openweathermap.org/data/2.5/weather?q=London';
-//$data = file_get_contents($url);
-// turn the JSON data into a PHP object
-$json = json_decode($data,true);
+$url = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=London&mode=json&units=imperial&cnt=7';
+$data = file_get_contents($url);
+//debug: check to see the URL you're using.
+//echo $url;
 
-var_dump($json);
+// turn the JSON data into a PHP array
+$json_array = json_decode($data,true);
 
-//var_dump($json); //for debugging
-/*foreach ($json->list as $myday){
+//var_dump($json_array);
+
+$condition = $json_array['list'][0]['weather'][0]['main'];
+echo "Condition on the first day is: $condition"; 
+
+// Show the temperatures for all 7 days
+foreach ($json_array['list'] as $myday){
 	echo '<li>';
-	echo date('M d',$myday->dt); // format the timestamp as a human-readable date
-	echo ': '.round($myday->temp->day) . 'F';
+	echo date('M d',$myday['dt']); // format the timestamp as a human-readable date
+	echo ': '.round($myday['temp']['day']) . 'F';
 	echo '</li>';
-}*/
+}
